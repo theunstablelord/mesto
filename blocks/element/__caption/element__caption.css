@@ -1,0 +1,7 @@
+.element__caption  {
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding: 25px 15px 31px 21px;
+  justify-content: space-between;
+}

@@ -1,0 +1,4 @@
+.footer {
+  grid-area: footer;
+  padding: 66px 0 60px;
+}
