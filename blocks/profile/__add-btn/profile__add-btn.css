@@ -4,3 +4,15 @@
   background: url(../../../images/profile/profile__add-button.svg) 50% no-repeat;
   border: 2px solid #fff;
 }
+
+.profile__add-btn:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: .2s;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__add-btn {
+    width: 282px
+  }
+}

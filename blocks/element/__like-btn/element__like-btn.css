@@ -4,3 +4,9 @@
   width: 22px;
   height: 19px;
 }
+
+.element__like-btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: .2s;
+}
