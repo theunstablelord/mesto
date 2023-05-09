@@ -3,6 +3,7 @@
   height: 50px;
   background: url(../../../images/profile/profile__add-button.svg) 50% no-repeat;
   border: 2px solid #fff;
+  border-radius: 2px;
 }
 
 .profile__add-btn:hover {
@@ -14,5 +15,6 @@
 @media screen and (max-width: 768px) {
   .profile__add-btn {
     width: 282px;
+    background-size: 16px 16px;
   }
 }
