@@ -2,8 +2,8 @@ const elementsList = document.querySelector('.elements__list');
 const elementTemplate = document.querySelector("#element-template").content;
 const elementItemTemplate = elementTemplate.querySelector('.element');
 const btnClosePopups = document.querySelectorAll('.popup__close-btn');
-const btnProfileEdit = document.querySelector('.profile__edit-btn');
-const btnElementAdd = document.querySelector('.profile__add-btn');
+const btnEditProfile = document.querySelector('.profile__edit-btn');
+const btnAddElement = document.querySelector('.profile__add-btn');
 const popupProfileEdit = document.querySelector('.popup_form_profile-edit');
 const popupElementAdd = document.querySelector('.popup_form_element-add');
 const popupImageView = document.querySelector('.popup_image-view');
@@ -80,13 +80,13 @@ function handleFormElementAddSubmit (evt) {
     closePopup(popupElementAdd);
 };
 
-btnProfileEdit.addEventListener('click', function () {
+btnEditProfile.addEventListener('click', function () {
     openPopup(popupProfileEdit);
     nameInputProfileEdit.value = profileName.textContent;
     jobInput.value = profileAbout.textContent;
 });
 
-btnElementAdd.addEventListener('click', function () {
+btnAddElement.addEventListener('click', function () {
     openPopup(popupElementAdd);
 });
 
