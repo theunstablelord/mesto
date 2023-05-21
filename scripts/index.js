@@ -1,14 +1,14 @@
 const elementsList = document.querySelector('.elements__list');
 const elementTemplate = document.querySelector("#element-template").content;
-const elementItem = elementTemplate.querySelector('.element');
-const btnPopupClose = document.querySelectorAll('.popup__close-btn');
+const elementItemTemplate = elementTemplate.querySelector('.element');
+const btnClosePopups = document.querySelectorAll('.popup__close-btn');
 const btnProfileEdit = document.querySelector('.profile__edit-btn');
 const btnElementAdd = document.querySelector('.profile__add-btn');
 const popupProfileEdit = document.querySelector('.popup_form_profile-edit');
 const popupElementAdd = document.querySelector('.popup_form_element-add');
 const popupImageView = document.querySelector('.popup_image-view');
-const popupImage = document.querySelector('.popup__image');
-const popupCaption = document.querySelector('.popup__caption');
+const photoPopupImageView = document.querySelector('.popup__image');
+const captionPopupImageView = document.querySelector('.popup__caption');
 const formProfileEdit = document.querySelector('.popup__form_profile_edit');
 const formElementAdd = document.querySelector('.popup__form_element_add');
 const nameInputProfileEdit = document.querySelector('.popup__input_user_name');
@@ -27,7 +27,7 @@ function closePopup(item) {
 };
 
 function createElement (element) {
-    const createItem = elementItem.cloneNode(true);
+    const createItem = elementItemTemplate.cloneNode(true);
     const elementImage = createItem.querySelector('.element__image');
     const elementName = createItem.querySelector('.element__name');
 
@@ -44,9 +44,9 @@ function createElement (element) {
 
     elementImage.addEventListener('click', function() {
         openPopup(popupImageView);
-        popupImage.src = elementImage.src;
-        popupImage.alt = elementImage.alt;
-        popupCaption.textContent = elementName.textContent;
+        photoPopupImageView.src = elementImage.src;
+        photoPopupImageView.alt = elementImage.alt;
+        captionPopupImageView.textContent = elementName.textContent;
     });
     
     return createItem;
@@ -90,7 +90,7 @@ btnElementAdd.addEventListener('click', function () {
     openPopup(popupElementAdd);
 });
 
-btnPopupClose.forEach(element => {
+btnClosePopups.forEach(element => {
     element.addEventListener('click', function (evt) {
      const popup = evt.target.closest('.popup');
      closePopup(popup);
