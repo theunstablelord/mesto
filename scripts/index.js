@@ -9,7 +9,7 @@ const popupElementAdd = document.querySelector('.popup__element-add');
 const popupImageView = document.querySelector('.popup__image-view');
 const popupImage = document.querySelector('.popup__image');
 const popupCaption = document.querySelector('.popup__caption');
-const formElementProfileEdit = document.querySelector('.popup__form_profile_edit');
+const formProfileEdit = document.querySelector('.popup__form_profile_edit');
 const formElementAdd = document.querySelector('.popup__form_element_add');
 const nameInputProfileEdit = document.querySelector('.popup__input_user_name');
 const nameInputElementAdd = document.querySelector('.popup__input_element_name');
@@ -97,5 +97,5 @@ btnPopupClose.forEach(element => {
     });
 });
 
-formElementProfileEdit.addEventListener('submit', handleFormProfileEditSubmit);
+formProfileEdit.addEventListener('submit', handleFormProfileEditSubmit);
 formElementAdd.addEventListener('submit', handleFormElementAddSubmit);
