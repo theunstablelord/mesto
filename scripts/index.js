@@ -6,6 +6,9 @@ const btnProfileEdit = document.querySelector('.profile__edit-btn');
 const btnElementAdd = document.querySelector('.profile__add-btn');
 const popupProfileEdit = document.querySelector('.popup__profile-edit');
 const popupElementAdd = document.querySelector('.popup__element-add');
+const popupImageView = document.querySelector('.popup__image-view');
+const popupImage = document.querySelector('.popup__image');
+const popupCaption = document.querySelector('.popup__caption');
 const formElementProfileEdit = document.querySelector('.popup__form_profile_edit');
 const formElementAdd = document.querySelector('.popup__form_element_add');
 const nameInputProfileEdit = document.querySelector('.popup__input_user_name');
@@ -15,14 +18,13 @@ const urlInput = document.querySelector('.popup__input_element_link');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 
-//Функции открытия/закрытия попапа
 function openPopup(item) {
     item.classList.add('popup_opened');
-}
+};
 
 function closePopup(item) {
     item.classList.remove('popup_opened');
-}
+};
 
 function createElement (element) {
     const createItem = elementItem.cloneNode(true);
@@ -39,19 +41,26 @@ function createElement (element) {
     createItem.querySelector('.element__delete-btn').addEventListener('click', function() {
         createItem.remove();
     });
+
+    elementImage.addEventListener('click', function() {
+        openPopup(popupImageView);
+        popupImage.src = elementImage.src;
+        popupImage.alt = elementImage.alt;
+        popupCaption.textContent = elementName.textContent;
+    });
     
     return createItem;
 };
 
 function addInitialElement(itemAdd) {
     elementsList.append(itemAdd);
-  };
-  
-  initialCards.forEach(element => {
+};
+
+initialCards.forEach(element => {
     const itemAdd = createElement(element);
     addInitialElement(itemAdd);
-  });
-  
+});
+
 function handleFormProfileEditSubmit (evt) {
     evt.preventDefault(); 
     
@@ -63,7 +72,10 @@ function handleFormProfileEditSubmit (evt) {
 function handleFormElementAddSubmit (evt) {
     evt.preventDefault(); 
     
-    elementsList.prepend(createElement({ name: nameInputElementAdd.value, link: urlInput.value }));
+    elementsList.prepend(createElement({ 
+        name: nameInputElementAdd.value,
+        link: urlInput.value 
+    }));
     formElementAdd.reset();
     closePopup(popupElementAdd);
 };

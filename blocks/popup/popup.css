@@ -9,7 +9,10 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  display: none;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.3s, opacity 0.3s;
 }
 
 @media screen and (max-width: 768px) {
