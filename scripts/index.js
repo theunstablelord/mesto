@@ -17,6 +17,9 @@ const jobInput = document.querySelector('.popup__input_user_about');
 const urlInput = document.querySelector('.popup__input_element_link');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
+const inputList = Array.from(formProfileEdit.querySelectorAll('.popup__form'));
+const btnEditSave = formProfileEdit.querySelector('.popup__save-btn');
+const btnCreateSave = formElementAdd.querySelector('.popup__save-btn');
 
 function openPopup(item) {
     item.classList.add('popup_opened');
@@ -84,6 +87,10 @@ btnEditProfile.addEventListener('click', function () {
     openPopup(popupProfileEdit);
     nameInputProfileEdit.value = profileName.textContent;
     jobInput.value = profileAbout.textContent;
+    inputList.forEach(() => {
+        isValid(formProfileEdit, formInput);
+        toggleButtonState(inputList, btnEditSave, validationObject);
+    });
 });
 
 btnAddElement.addEventListener('click', function () {
