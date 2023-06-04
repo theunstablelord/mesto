@@ -4,7 +4,7 @@
   border-radius: 2px;
   width: 100%;
   color: #fff;
-  margin-top: 46px;
+  margin-top: 3px;
   padding: 14px 0 18px;
   font-weight: 400;
   font-size: 18px;
@@ -19,7 +19,6 @@
 
 @media screen and (max-width: 768px) {
   .popup__save-btn {
-    margin-top: 45px;
     padding: 14px 0 14px;
     font-weight: 400;
     font-size: 14px;

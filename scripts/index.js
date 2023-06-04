@@ -95,6 +95,8 @@ btnEditProfile.addEventListener('click', function () {
 
 btnAddElement.addEventListener('click', function () {
     openPopup(popupElementAdd);
+    btnCreateSave.classList.add('popup__save-btn_disabled');
+    turnOffButton(btnCreateSave);
 });
 
 btnClosePopups.forEach(element => {

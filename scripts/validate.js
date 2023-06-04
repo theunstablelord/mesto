@@ -10,6 +10,9 @@ const validationObject = {
 const formElement = document.querySelector('.popup__form');
 const formInput = formElement.querySelector('.popup__input');
 
+const turnOffButton = (button) => {
+  button.disabled = true;
+}
 
 const showInputError = (formElement, formInput, errorMessage, validationObject) => {
   const formError = formElement.querySelector(`.popup__form-error_${formInput.id}`);
@@ -60,11 +63,11 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonElement, validationObject) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
     buttonElement.classList.add(validationObject.inactiveButtonClass);
+    turnOffButton(buttonElement);
   } else {
-    buttonElement.disabled = false;
     buttonElement.classList.remove(validationObject.inactiveButtonClass);
+    buttonElement.disabled = false;
   };
 };
 
