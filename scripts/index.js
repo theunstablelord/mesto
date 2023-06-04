@@ -20,14 +20,35 @@ const profileAbout = document.querySelector('.profile__about');
 const inputList = Array.from(formProfileEdit.querySelectorAll('.popup__form'));
 const btnEditSave = formProfileEdit.querySelector('.popup__save-btn');
 const btnCreateSave = formElementAdd.querySelector('.popup__save-btn');
+const popups = document.querySelectorAll('.popup');
 
 function openPopup(item) {
     item.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupKey);
 };
 
 function closePopup(item) {
     item.classList.remove('popup_opened');
+    document.addEventListener('keydown', closePopupKey);
 };
+
+function closePopupKey(evt) {
+    if (evt.key === 'Escape') {
+        const popupOpened = document.querySelector('.popup_opened');
+        closePopup(popupOpened);
+    };
+};
+
+popups.forEach((popupOpened) => {
+    popupOpened.addEventListener('mousedown', function (evt) {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popupOpened);
+        };
+        if (evt.target.classList.contains('popup__close-btn')) {
+            closePopup(popupOpened);
+        };
+    });
+});
 
 function createElement (element) {
     const createItem = elementItemTemplate.cloneNode(true);
@@ -83,6 +104,8 @@ function handleFormElementAddSubmit (evt) {
     closePopup(popupElementAdd);
 };
 
+
+
 btnEditProfile.addEventListener('click', function () {
     openPopup(popupProfileEdit);
     nameInputProfileEdit.value = profileName.textContent;
@@ -99,12 +122,6 @@ btnAddElement.addEventListener('click', function () {
     turnOffButton(btnCreateSave);
 });
 
-btnClosePopups.forEach(element => {
-    element.addEventListener('click', function (evt) {
-     const popup = evt.target.closest('.popup');
-     closePopup(popup);
-    });
-});
 
 formProfileEdit.addEventListener('submit', handleFormProfileEditSubmit);
 formElementAdd.addEventListener('submit', handleFormElementAddSubmit);
