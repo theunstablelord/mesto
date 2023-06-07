@@ -21,8 +21,7 @@ const profileFormInputs = Array.from(formProfileEdit.querySelectorAll('.popup__i
 const btnEditSave = formProfileEdit.querySelector('.popup__save-btn');
 const btnCreateSave = formCardAdd.querySelector('.popup__save-btn');
 const popups = document.querySelectorAll('.popup');
-const formElement = document.querySelector('.popup__form');
-const inputElement = formElement.querySelector('.popup__input');
+const inputElement = formProfileEdit.querySelector('.popup__input');
 
 function openPopup(item) {
     item.classList.add('popup_opened');
@@ -95,7 +94,7 @@ function handleFormProfileEditSubmit (evt) {
     closePopup(popupProfileEdit);
 };
 
-function handleformCardAddSubmit (evt) {
+function handleFormCardAddSubmit (evt) {
     evt.preventDefault(); 
     
     cardsContainer.prepend(createCard({ 
@@ -112,18 +111,18 @@ btnEditProfile.addEventListener('click', function () {
     openPopup(popupProfileEdit);
     nameInputProfileEdit.value = profileName.textContent;
     jobInput.value = profileAbout.textContent;
-    profileFormInputs.forEach(() => {
-        isValid(formProfileEdit, inputElement);
-        toggleButtonState(profileFormInputs, btnEditSave, validationConfig);
+    profileFormInputs.forEach((inputElement) => {
+        isValid(formProfileEdit, inputElement, validationConfig);
+        enableButton(btnCreateSave, validationConfig);
     });
 });
 
 btnAddElement.addEventListener('click', function () {
     openPopup(popupCardAdd);
     btnCreateSave.classList.add('popup__save-btn_disabled');
-    disableButton(btnCreateSave);
+    disableButton(btnCreateSave, validationConfig);
 });
 
 
 formProfileEdit.addEventListener('submit', handleFormProfileEditSubmit);
-formCardAdd.addEventListener('submit', handleformCardAddSubmit);
+formCardAdd.addEventListener('submit', handleFormCardAddSubmit);

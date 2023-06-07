@@ -7,31 +7,31 @@ const validationConfig = {
   errorClass: 'popup__form-error_visible'
 };
 
-const disableButton = (buttonElement) => {
+const disableButton = (buttonElement, validationConfig) => {
   buttonElement.disabled = true;
   buttonElement.classList.add(validationConfig.inactiveButtonClass);
 }
 
-const enableButton = (buttonElement) => {
+const enableButton = (buttonElement, validationConfig) => {
   buttonElement.disabled = false;
   buttonElement.classList.remove(validationConfig.inactiveButtonClass);
 }
 
 const showInputError = (formElement, inputElement, errorMessage, validationConfig) => {
   const formError = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(validationConfig.inputErrorClass);
   formError.textContent = errorMessage;
   formError.classList.add(validationConfig.errorClass);
+  inputElement.classList.add(validationConfig.inputErrorClass);
 };
 
 const hideInputError = (formElement, inputElement, validationConfig) => {
   const formError = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(validationConfig.inputErrorClass);
-  formError.textContent = '';
   formError.classList.remove(validationConfig.errorClass);
+  formError.textContent = '';
+  inputElement.classList.remove(validationConfig.inputErrorClass);
 };
 
-const isValid = (formElement, inputElement) => {
+const isValid = (formElement, inputElement, validationConfig) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage, validationConfig);
   } else {
@@ -45,7 +45,7 @@ const setEventListener = (formElement, validationConfig) => {
   toggleButtonState(inputList, buttonElement, validationConfig);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
-      isValid(formElement, inputElement);
+      isValid(formElement, inputElement, validationConfig);
       toggleButtonState(inputList, buttonElement, validationConfig);
     });
   });
@@ -64,11 +64,11 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (inputList, buttonElement, validationConfig) => {
   if (hasInvalidInput(inputList)) {
-    disableButton(buttonElement);
+    disableButton(buttonElement, validationConfig);
   } else {
-    enableButton(buttonElement);
+    enableButton(buttonElement, validationConfig);
   };
 };
 
