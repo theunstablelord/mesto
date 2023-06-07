@@ -113,7 +113,7 @@ btnEditProfile.addEventListener('click', function () {
     jobInput.value = profileAbout.textContent;
     profileFormInputs.forEach((inputElement) => {
         isValid(formProfileEdit, inputElement, validationConfig);
-        enableButton(btnCreateSave, validationConfig);
+        enableButton(btnEditSave, validationConfig);
     });
 });
 
