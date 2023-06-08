@@ -21,7 +21,6 @@ const profileFormInputs = Array.from(formProfileEdit.querySelectorAll('.popup__i
 const btnEditSave = formProfileEdit.querySelector('.popup__save-btn');
 const btnCreateSave = formCardAdd.querySelector('.popup__save-btn');
 const popups = document.querySelectorAll('.popup');
-const inputElement = formProfileEdit.querySelector('.popup__input');
 
 function openPopup(item) {
     item.classList.add('popup_opened');
