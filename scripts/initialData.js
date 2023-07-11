@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -32,3 +32,12 @@ const initialCards = [
     link: 'https://s.mediasole.ru/cache/content/data/images/1408/1408306/3c7ffff3339f.jpg'
   }
 ];
+
+export const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save-btn',
+  inactiveButtonClass: 'popup__save-btn_disabled',
+  inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__form-error_visible'
+};
