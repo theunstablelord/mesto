@@ -49,20 +49,20 @@ export class FormValidator {
   }
 
   cleanFormErrors() {
+    this._toggleButtonState();
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
-      this._toggleButtonState();
     });
   }
 
   _disableButton() {
     this._buttonElement.classList.add(this._data.inactiveButtonClass);
-    this._buttonElement.setAttribute('disable', true);
+    this._buttonElement.disabled = true;
   }
   
   _enableButton () {
     this._buttonElement.classList.remove(this._data.inactiveButtonClass);
-    this._buttonElement.setAttribute('disable', false);
+    this._buttonElement.disabled = false;
   }
 
   _toggleButtonState() {
