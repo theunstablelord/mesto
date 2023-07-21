@@ -49,7 +49,6 @@ const popupProfileEdit = new PopupWithForm('.popup_form_profile-edit', (data) =>
 });
 
 popupProfileEdit.setEventListeners();
-popupProfileEdit.close();
 
 const popupCardAdd = new PopupWithForm('.popup_form_element-add', (data) => {
     createCard(data);
@@ -57,7 +56,6 @@ const popupCardAdd = new PopupWithForm('.popup_form_element-add', (data) => {
 });
 
 popupCardAdd.setEventListeners();
-popupCardAdd.close();
 
 
 btnEditProfile.addEventListener('click', function () {
