@@ -28,16 +28,16 @@ popupWithImage.setEventListeners();
 const userInfo = new UserInfo({ name:'.profile__name', job:'.profile__about' });
 
 
-function createCard (data) {
-    const card = new Card(data, '#element-template', (imageLink, imageName) => {
-        popupWithImage.open(imageLink, imageName);
+function createCard (item) {
+    const card = new Card(item, '#element-template', (name, link) => {
+        popupWithImage.open(name, link);
     });
     const cardElement = card.generateCard();
-    return cardElement;
+    cards.addItem(cardElement);
 };
 
 const cards = new Section({
-    items: initialCards, 
+    data: initialCards, 
     renderer: createCard
 }, cardsContainer);
 

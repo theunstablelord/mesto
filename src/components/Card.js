@@ -23,7 +23,7 @@ export class Card {
   }
 
   _handleLikeButton() {
-    this._likeButton.classList.toggle('.element__like-btn_active');
+    this._likeButton.classList.toggle('element__like-btn_active');
   }
 
   _deleteCard() {
@@ -42,7 +42,7 @@ export class Card {
     });
     this._elementImage = this._element.querySelector('.element__image');
     this._elementImage.addEventListener('click', () => {
-      this._handleCardClick();
+      this._handleCardClick(this._imageLink, this._imageName);
     });
   }
 };

@@ -5,23 +5,23 @@ export class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
     this._formElement = this._popupSelector.querySelector('.popup__form');
-    this._inputList = Arra.from(this._formElement.querySelectorAll('.popup__input'));
+    this._inputList = Array.from(this._formElement.querySelectorAll('.popup__input'));
   }
 
   _getInputValues() {
-    const formValues = {};
+    this._formValues = {};
     this._inputList.forEach(input => {
-      formValues[input.name] = input.value;
+      this._formValues[input.name] = input.value;
     });
 
-    return formValues;
+    return this._formValues;
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._formElement.addEventListener('sumbit', (evt) => {
+    this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues);
+      this._handleFormSubmit(this._getInputValues());
     });
   }
 
