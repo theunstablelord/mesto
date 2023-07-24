@@ -32,13 +32,15 @@ function createCard (item) {
     const card = new Card(item, '#element-template', (name, link) => {
         popupWithImage.open(name, link);
     });
-    const cardElement = card.generateCard();
-    cards.addItem(cardElement);
+    return card.generateCard();
 };
+
 
 const cards = new Section({
     data: initialCards, 
-    renderer: createCard
+    renderer: (item) => {
+        cards.addItem(createCard(item));
+    }
 }, cardsContainer);
 
 cards.renderItems();
@@ -51,7 +53,7 @@ const popupProfileEdit = new PopupWithForm('.popup_form_profile-edit', (data) =>
 popupProfileEdit.setEventListeners();
 
 const popupCardAdd = new PopupWithForm('.popup_form_element-add', (data) => {
-    createCard(data);
+    cards.addItem(createCard(data));
     popupCardAdd.close();
 });
 
