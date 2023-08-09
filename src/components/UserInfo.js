@@ -11,8 +11,8 @@ export class UserInfo {
 
   setUserInfo (name, info) {
     if (name && info) {
-    this._name.textContent = data.name;
-    this._job.textContent = data.info;
+    this._name.textContent = name;
+    this._job.textContent = info;
     }
   }
 

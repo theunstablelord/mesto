@@ -35,7 +35,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
         myId = res._id;
         userInfo.setUserInfo(res.name, res.about);
         userInfo.setUserAvatar(res.avatar);
-        cards.renderItems(cardsList);
+        cardsList.renderItems(cards);
     })
     .catch((err) => {
         console.log(err);

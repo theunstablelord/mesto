@@ -59,8 +59,9 @@ export class Card {
       this._handeCardLike(this._cardId);
     });
 
-    this._element.querySelector('.element__delete-btn').addEventListener('click', () => {
-      this._deleteCard(this._cardId);
+    this._deleteCardButton = this._element.querySelector('.element__delete-btn');
+    this._deleteCardButton.addEventListener('click', () => {
+      this._handleCardDelete(this._cardId);
     });
 
     this._elementImage = this._element.querySelector('.element__image');
