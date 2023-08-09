@@ -13,7 +13,9 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/profile/profile__avatar.png')%>" alt="Аватар">
+        <button class="profile__avatar-edit-btn" type="button" title="Обновить аватар">
+          <img class="profile__avatar" src="#" alt="Аватар">
+        </button>
         <div class="profile__info">
           <div class="profile__row">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -57,6 +59,26 @@
       </form>
     </div>
   </section>
+  <section class="popup popup_form_avatar-edit">
+    <div class="popup__container">
+      <button class="popup__close-btn" type="button" title="Закрыть"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form popup__form_avatar_edit" name="data" novalidate>
+        <input type="url" class="popup__input popup__input_avatar_link" id="avatar-link" name="link" placeholder="Ссылка на картинку" required>
+        <span class="avatar-link-error popup__form-error "></span>
+        <button class="popup__save-btn" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup_form_delete-confirm">
+    <div class="popup__container">
+      <button class="popup__close-btn" type="button" title="Закрыть"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form popup__form_delete_confirm" name="data" novalidate>
+        <button class="popup__save-btn" type="submit">Да</button>
+      </form>
+    </div>
+  </section>
   <section class="popup popup_image-view">
     <div class="popup__container-image">
       <button class="popup__close-btn" type="button" title="Закрыть"></button>
@@ -70,7 +92,10 @@
       <img src="#" alt="#" class="element__image">
       <div class="element__caption">
         <h2 class="element__name"></h2>
-        <button class="element__like-btn" type="button" title="Мне нравится"></button> 
+       <div class="element__like-container">
+        <button class="element__like-btn" type="button" title="Мне нравится"></button>
+        <p class="element__like-count"></p>
+       </div> 
       </div>
     </li>
   </template>
